@@ -1,18 +1,23 @@
 {
     "name": "@law-fi/db",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "db:generate": "prisma generate",
+        "db:push": "prisma db push",
+        "db:migrate": "prisma migrate dev",
+        "db:studio": "prisma studio",
+        "db:test": "tsx scripts/test-database.ts"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "@prisma/client": "^7.4.2"
+        "@prisma/adapter-pg": "^7.5.0",
+        "@prisma/client": "^7.4.2",
+        "dotenv": "^17.3.1",
+        "tsx": "^4.21.0"
     },
     "devDependencies": {
-        "prisma": "^7.4.2"
+        "prisma": "^7.4.2",
+        "typescript": "^5.0.0"
     }
 }
