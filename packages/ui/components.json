@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "./src/components",
+    "utils": "./src/lib/utils",
+    "ui": "./src/components/ui",
+    "lib": "./src/lib",
+    "hooks": "./src/hooks"
+  },
+  "iconLibrary": "lucide",
+  "resolvedPaths": {
+    "tailwindConfig": "",
+    "tailwindCss": "/Users/hoya/nodejs/law-fi/packages/ui/src/globals.css",
+    "utils": "/Users/hoya/nodejs/law-fi/packages/ui/src/lib/utils",
+    "components": "/Users/hoya/nodejs/law-fi/packages/ui/src/components",
+    "ui": "/Users/hoya/nodejs/law-fi/packages/ui/src/components/ui",
+    "lib": "/Users/hoya/nodejs/law-fi/packages/ui/src/lib",
+    "hooks": "/Users/hoya/nodejs/law-fi/packages/ui/src/hooks"
+  }
+}

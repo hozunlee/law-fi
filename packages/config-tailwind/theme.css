@@ -1,0 +1,48 @@
+@theme {
+  --font-sans: "Pretendard", "Apple SD Gothic Neo", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foam: var(--accent-foam);
+  --color-border-subtle: var(--border-subtle);
+
+  --radius-button: 9999px;
+  --radius-card: 16px;
+  --radius-modal: 16px;
+}
+
+@layer base {
+  :root {
+    --bg-base: #F5F5F7;
+    --bg-surface: #FFFFFF;
+    --text-primary: #3B1C0B;
+    --text-secondary: #8E8E93;
+    --accent-primary: #C27236;
+    --accent-hover: #A85D2A;
+    --accent-foam: #E5CDA2;
+    --border-subtle: #E5E5EA;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-base: #1A1A1C;
+      --bg-surface: #242426;
+      --text-primary: #EAE8E3;
+      --text-secondary: #8A8A8E;
+      --accent-primary: #C27236;
+      --accent-hover: #E08A4D;
+      --accent-foam: #3A2A1E;
+      --border-subtle: #3B1C0B;
+    }
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+}
