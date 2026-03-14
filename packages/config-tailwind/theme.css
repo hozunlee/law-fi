@@ -1,48 +1,63 @@
-@theme {
-  --font-sans: "Pretendard", "Apple SD Gothic Neo", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-  --color-bg-base: var(--bg-base);
-  --color-bg-surface: var(--bg-surface);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-foam: var(--accent-foam);
-  --color-border-subtle: var(--border-subtle);
-
-  --radius-button: 9999px;
-  --radius-card: 16px;
-  --radius-modal: 16px;
+@font-face {
+	font-family: 'SUIT Variable';
+	font-weight: 100 900;
+	font-style: normal;
+	src: url('/fonts/SUIT-Variable.woff2') format('woff2-variations');
 }
 
+@theme {
+	--font-sans:
+		'SUIT Variable', 'Apple SD Gothic Neo', ui-sans-serif, system-ui, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+	--color-bg-base: var(--bg-base);
+	--color-bg-surface: var(--bg-surface);
+	--color-text-primary: var(--text-primary);
+	--color-text-secondary: var(--text-secondary);
+	--color-accent-primary: var(--accent-primary);
+	--color-accent-hover: var(--accent-hover);
+	--color-accent-foam: var(--accent-foam);
+	--color-border-subtle: var(--border-subtle);
+
+	--radius-button: 9999px;
+	--radius-card: 16px;
+	--radius-modal: 16px;
+}
 @layer base {
-  :root {
-    --bg-base: #F5F5F7;
-    --bg-surface: #FFFFFF;
-    --text-primary: #3B1C0B;
-    --text-secondary: #8E8E93;
-    --accent-primary: #C27236;
-    --accent-hover: #A85D2A;
-    --accent-foam: #E5CDA2;
-    --border-subtle: #E5E5EA;
-  }
+	:root {
+		/* Base Colors (Deep Charcoal base) */
+		--bg-base: #111111; /* 딥 블랙 / 차콜 배경 */
+		--bg-surface: #1a1a1a; /* 약간 더 밝은 차콜 표면 (카드, 모달) */
+		--text-primary: #ffffff; /* 순백색 메인 텍스트 */
+		--text-secondary: #999999; /* 중간 회색 부가 설명 */
+		--border-subtle: #333333; /* 어두운 구분선 */
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-base: #1A1A1C;
-      --bg-surface: #242426;
-      --text-primary: #EAE8E3;
-      --text-secondary: #8A8A8E;
-      --accent-primary: #C27236;
-      --accent-hover: #E08A4D;
-      --accent-foam: #3A2A1E;
-      --border-subtle: #3B1C0B;
-    }
-  }
+		/* 🌟 Refined Accent Colors (Vibrant Copper - #DB9751 보다 채도를 높인 쨍한 구리빛) */
+		--accent-primary: #e8923a; /* 핵심 포인트 컬러 (명료하고 쨍한 코퍼) */
+		--accent-hover: #cc7d2d; /* 호버 시 차분해지는 톤 */
+		--accent-foam: #4a3520; /* 뱃지 배경용 (차콜 베이스에 코퍼를 은은하게 녹임) */
+	}
 
-  body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-  }
+	/* 🌟 OS 설정 미디어 쿼리 제거: 이 테마를 기본으로 사용 */
+
+	/* 유저 수동 토글용 다크 모드 클래스 (선택 사항 - 이 테마와 동일하게 설정) */
+	:root.dark {
+		--bg-base: #111111;
+		--bg-surface: #1a1a1a;
+		--text-primary: #ffffff;
+		--text-secondary: #999999;
+		--border-subtle: #333333;
+		--accent-primary: #ff8c00;
+		--accent-hover: #d2691e;
+		--accent-foam: #cd7f32;
+	}
+
+	body {
+		background-color: var(--bg-base);
+		color: var(--text-primary);
+		font-family: var(--font-sans);
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
+	}
 }

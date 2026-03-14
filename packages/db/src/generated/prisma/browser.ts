@@ -22,3 +22,8 @@ export * from './enums.ts';
  * 
  */
 export type HealthCheck = Prisma.HealthCheckModel
+/**
+ * Model Profile
+ * 
+ */
+export type Profile = Prisma.ProfileModel

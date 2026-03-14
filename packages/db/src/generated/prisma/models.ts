@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/HealthCheck.ts'
+export type * from './models/Profile.ts'
 export type * from './commonInputTypes.ts'

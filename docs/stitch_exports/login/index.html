@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#E5D5C0", "background-light": "#f7f7f6", "background-dark": "#1d1a15", espresso: "#0C0C0D", "cool-grey": "#94a3b8"}, fontFamily: {display: "Arimo"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}}}};</script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="flex min-h-screen w-full flex-col lg:flex-row">
+<!-- Left Side: Login Form -->
+<div class="flex flex-1 flex-col justify-center px-8 py-12 sm:px-16 lg:px-24 xl:px-32 bg-espresso">
+<div class="mb-10 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-2xl">balance</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight text-white">Law-fi</h2>
+</div>
+<div class="max-w-md w-full mx-auto lg:mx-0">
+<div class="mb-8">
+<h1 class="text-4xl font-black tracking-tight text-white mb-3">Welcome back</h1>
+<p class="text-cool-grey text-lg">Enter your password to access your account</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field (Read-only) -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-cool-grey uppercase tracking-wider">Email Address</label>
+<div class="relative flex items-center">
+<input class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-4 text-white/50 cursor-not-allowed focus:ring-0 focus:border-white/10" disabled="" readonly="" type="email" value="user@example.com"/>
+<div class="absolute right-4 text-white/20">
+<span class="material-symbols-outlined">lock</span>
+</div>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-cool-grey uppercase tracking-wider">Password</label>
+<a class="text-sm font-medium text-primary hover:text-primary/80" href="#">Forgot password?</a>
+</div>
+<div class="relative flex items-center">
+<input class="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-4 text-white placeholder:text-cool-grey/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 text-cool-grey hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-2">
+<button class="w-full rounded-lg bg-white py-4 text-base font-bold text-espresso hover:bg-slate-200 transition-colors shadow-lg" type="submit">
+                            Sign In
+                        </button>
+</div>
+<!-- Secondary Action -->
+<div class="text-center">
+<button class="group flex items-center justify-center gap-2 mx-auto text-cool-grey hover:text-white transition-colors py-2" type="button">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span class="font-medium">Use a different email</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Footer info -->
+<div class="mt-auto pt-10 text-xs text-cool-grey/40">
+                © 2024 Law-fi International. All rights reserved. Secure terminal session active.
+            </div>
+</div>
+<!-- Right Side: Decorative Graphic -->
+<div class="hidden lg:flex flex-1 relative bg-slate-900 overflow-hidden">
+<!-- Background Pattern / Abstract Graphic -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-espresso to-espresso"></div>
+<!-- Placeholder Graphic consistent with Step 1 -->
+<div class="relative z-10 flex h-full w-full flex-col items-center justify-center p-12 text-center">
+<div class="relative w-full max-w-lg">
+<!-- Decorative abstract elements -->
+<div class="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl"></div>
+<div class="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-2xl">
+<div class="mb-8 flex justify-center">
+<div class="h-24 w-24 rounded-full bg-gradient-to-tr from-primary to-primary/40 flex items-center justify-center shadow-[0_0_40px_rgba(123,110,247,0.3)]">
+<span class="material-symbols-outlined text-5xl text-white">fingerprint</span>
+</div>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Enterprise Grade Security</h3>
+<p class="text-cool-grey leading-relaxed">
+                            Your legal documents and correspondence are encrypted using industry-standard AES-256 protocols. Experience the future of legal tech with peace of mind.
+                        </p>
+<div class="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+<div class="text-center">
+<div class="text-white font-bold text-xl">99.9%</div>
+<div class="text-cool-grey text-[10px] uppercase tracking-tighter">Uptime</div>
+</div>
+<div class="text-center border-x border-white/10">
+<div class="text-white font-bold text-xl">256-bit</div>
+<div class="text-cool-grey text-[10px] uppercase tracking-tighter">Encryption</div>
+</div>
+<div class="text-center">
+<div class="text-white font-bold text-xl">2FA</div>
+<div class="text-cool-grey text-[10px] uppercase tracking-tighter">Ready</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 max-w-sm">
+<img alt="Minimalist legal sculpture in a dark modern office" class="rounded-xl opacity-40 mix-blend-luminosity grayscale shadow-2xl" data-alt="Abstract dark modern office architectural detail with shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv1y98ruLx5i29u5PLwtqCOJnGHvproKdrROIjPg9_6XrQ8YVdvGu6BJmYcOO8tSMr4BkE-JQswnLTCspH1zy_L6R9uBFYpMXyNJWPmltjFh1YPQJ4itRN1p8xA6Z5AtuP7wv-8_VYqJC6bEqj6TlA2mEKiedfa269tM4ccurpjqp-2rCX8wNlE3-xv1gIebJEd5uEhWPDJZ-00ogKB204vR_QCv26j3-03hW0aCaB4UyW2HGd8UVuQPxj4CBH2WpoJ0P3TYzGL6g"/>
+</div>
+</div>
+</div>
+</div>
+</body></html>

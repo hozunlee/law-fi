@@ -46,3 +46,8 @@ export { Prisma }
  * 
  */
 export type HealthCheck = Prisma.HealthCheckModel
+/**
+ * Model Profile
+ * 
+ */
+export type Profile = Prisma.ProfileModel
