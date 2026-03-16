@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@law-fi/ui/button'
 import { Input } from '@law-fi/ui/input'
-import { useOnboardingStore } from './useOnboardingStore'
+import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { checkNicknameDuplicate } from '@/lib/actions/onboarding.action'
-import { toast } from '@law-fi/ui/sonner'
+import { toast } from 'sonner'
 
 export function NicknameStep() {
 	const { nickname, setNickname, setStep } = useOnboardingStore()
@@ -38,9 +38,9 @@ export function NicknameStep() {
 	}
 
 	return (
-		<div className="w-full max-w-md mx-auto">
+		<div className="mx-auto w-full max-w-md">
 			<div className="mb-8">
-				<h1 className="text-3xl font-bold text-white mb-2">Welcome!</h1>
+				<h1 className="mb-2 text-3xl font-bold text-white">Welcome!</h1>
 				<p className="text-white/60">활동하실 닉네임을 설정해주세요.</p>
 			</div>
 
@@ -58,10 +58,10 @@ export function NicknameStep() {
 							setError(null)
 						}}
 						disabled={isLoading}
-						className="bg-white/5 border-white/10 text-white h-12 focus:border-(--accent-primary)"
+						className="h-12 border-white/10 bg-white/5 text-white focus:border-(--accent-primary)"
 					/>
 					{error && <p className="text-sm text-red-500">{error}</p>}
-					<p className="text-xs text-white/30 italic mt-2">
+					<p className="mt-2 text-xs text-white/30 italic">
 						* 닉네임 변경은 7일에 1회로 제한됩니다.
 					</p>
 				</div>
@@ -69,7 +69,7 @@ export function NicknameStep() {
 				<Button
 					type="submit"
 					disabled={isLoading || !nickname}
-					className="w-full h-12 bg-white text-black hover:bg-white/90 font-bold rounded-xl"
+					className="h-12 w-full rounded-xl bg-white font-bold text-black hover:bg-white/90"
 				>
 					{isLoading ? '확인 중...' : 'Next Step'}
 				</Button>

@@ -1,3 +1,10 @@
+# 핵심
+
+1. 반드시 한글로 답변
+2. 기획을 하라고하면 기획만하고 코드는 작성하지 않는다. 컨펌 후 진행한다.
+3. 경로는 @ 알리아스 절대경로를 이용한다.
+4.
+
 # Law-fi Project Specification (general.md)
 
 ## 1. Project Overview

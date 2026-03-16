@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useOnboardingStore } from './useOnboardingStore'
+import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { NicknameStep } from '../../features/onboarding/NicknameStep'
 import { RoleStep } from '../../features/onboarding/RoleStep'
 import { VerificationStep } from '../../features/onboarding/VerificationStep'
@@ -11,7 +11,7 @@ export function OnboardingWizard() {
 	const { step } = useOnboardingStore()
 
 	return (
-		<div className="relative w-full min-h-[500px] flex items-center justify-center py-12">
+		<div className="relative flex min-h-[500px] w-full items-center justify-center py-12">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={step}
