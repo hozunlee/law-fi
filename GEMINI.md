@@ -84,17 +84,23 @@
 
 ```
 apps/web/
-├── app/               # 🌐 라우팅 & 서버 페칭 (page.tsx, layout.tsx)
-│   ├── (auth)/login/
-│   └── (main)/lounge/
+├── next.config.ts
+├── package.json
+├── ... (기타 설정 파일들)
 │
-├── components/        # 🧩 UI & 비즈니스 로직 (app 폴더와 완전히 분리!)
-│   ├── features/      # (예: AuthForm, EmailCheckForm)
-│   └── widgets/       # (예: OnboardingWizard)
-│
-└── lib/               # 🛠️ 유틸리티 & 서버 액션
-    ├── actions/
-    └── supabase/
+└── src/                   # 🌟 모든 소스코드의 성역
+    ├── middleware.ts      # (src 최상단에 위치)
+    │
+    ├── app/               # 🌐 1. 라우팅 & 서버 페칭
+    │   ├── (auth)/login/
+    │   └── (main)/lounge/
+    │
+    ├── components/        # 🧩 2. UI & 비즈니스 로직
+    │   ├── features/
+    │   └── widgets/
+    │
+    └── lib/               # 🛠️ 3. 유틸리티 & 서버 액션
+        ├── actions/
 ```
 
 #### A. Routing Layer: `app/**/page.tsx`

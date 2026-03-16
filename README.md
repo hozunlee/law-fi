@@ -1,159 +1,52 @@
-# Turborepo starter
+# ⚖️ Law-fi (로파이)
 
-This Turborepo starter is maintained by the Turborepo core team.
+> **"Clarity & Stealth"**
+> 법조인 및 로스쿨 학생을 위한 익명 기반 전문직 라운지.
 
-## Using this example
+Law-fi는 복잡한 인증 절차를 우아하게 풀어내고, 철저한 보안(RLS)과 익명성을 보장하는 프라이빗 커뮤니티 플랫폼입니다.
+에스프레소의 묵직함과 쨍한 구리빛(Vibrant Copper)의 세련됨을 담은 UI/UX를 제공합니다.
 
-Run the following command:
+---
 
-```sh
-npx create-turbo@latest
+## 🚀 Tech Stack
+
+- **Workspace:** pnpm, Turborepo (Monorepo)
+- **Frontend (Web):** Next.js 15 (App Router), React Compiler
+- **Backend / Auth:** Supabase (PostgreSQL, Email/OTP Auth, Storage)
+- **ORM:** Prisma
+- **Styling:** Tailwind CSS v4, shadcn/ui, Framer Motion
+- **State Management:** Zustand (Client UI State)
+- **Validation:** Zod
+
+---
+
+## 🏗️ Workspace Structure
+
+본 프로젝트는 **"공통 설정은 패키지에, 비즈니스 로직은 앱에"**라는 원칙을 따르는 모노레포 구조로 설계되었습니다.
+
+```text
+law-fi/
+├── apps/
+│   ├── web/                # 메인 유저 서비스 (Next.js)
+│   └── admin/              # 백오피스 관리자 페이지 (Vite + Refine)
+│
+├── packages/
+│   ├── config-tailwind/    # 전역 디자인 시스템 (에어로카노 & 골든 구리 테마)
+│   ├── db/                 # Prisma 스키마 (단일 진실 공급원) 및 DB 클라이언트
+│   ├── supabase/           # Supabase 클라이언트 (SSR 지원) 및 Zod 스키마
+│   ├── ui/                 # shadcn/ui 기반 원시 컴포넌트 모음
+│   ├── eslint-config/      # 공통 Lint 설정
+│   └── typescript-config/  # 공통 TS 설정
 ```
 
-## What's inside?
+## 📐 Architecture Rules (Simplified FSD)
 
-This Turborepo includes the following packages/apps:
+apps/web 내부의 프론트엔드 코드는 간소화된 FSD(Feature-Sliced Design) 아키텍처를 엄격하게 준수합니다.
 
-### Apps and Packages
+app/ (Routing Layer): URL 라우팅 및 서버 사이드 데이터 페칭(Server Components)만 담당합니다. UI를 직접 그리지 않습니다.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+components/widgets/ (Assembler): 여러 개의 Feature를 조합하여 도메인 단위의 레이아웃과 상태 흐름을 관리합니다.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+components/features/ (The Doer): 사용자와 직접 상호작용하는 단일 기능 단위(Client Components)입니다. 다른 Feature를 직접 import 하지 않습니다.
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo build --filter=docs
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+lib/actions/ (Server Actions): DB Mutation 등 데이터를 변경하는 서버 로직은 무조건 이곳에 격리합니다. DB 접근은 오직 Prisma로만 수행합니다.

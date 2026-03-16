@@ -28,7 +28,6 @@ export function EmailCheckForm({ onResolved }: EmailCheckFormProps) {
 		try {
 			const { exists } = await checkEmailExists(email)
 
-			console.log('exists>>>>>>>', exists)
 			if (exists) {
 				onResolved(email, 'LOGIN')
 			} else {
