@@ -14,6 +14,7 @@
     "@law-fi/ui": "workspace:^",
     "@refinedev/core": "^5.0.11",
     "@refinedev/react-router": "^2.0.4",
+    "@refinedev/supabase": "^6.0.2",
     "@supabase/supabase-js": "^2.99.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
