@@ -607,6 +607,8 @@ export const ProfileScalarFieldEnum = {
   nickname: 'nickname',
   role: 'role',
   verificationStatus: 'verificationStatus',
+  verificationImagePath: 'verificationImagePath',
+  verificationSubmittedAt: 'verificationSubmittedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -30,6 +30,8 @@ export type ProfileMinAggregateOutputType = {
   nickname: string | null
   role: $Enums.UserRole | null
   verificationStatus: $Enums.VerificationStatus | null
+  verificationImagePath: string | null
+  verificationSubmittedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -40,6 +42,8 @@ export type ProfileMaxAggregateOutputType = {
   nickname: string | null
   role: $Enums.UserRole | null
   verificationStatus: $Enums.VerificationStatus | null
+  verificationImagePath: string | null
+  verificationSubmittedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,6 +54,8 @@ export type ProfileCountAggregateOutputType = {
   nickname: number
   role: number
   verificationStatus: number
+  verificationImagePath: number
+  verificationSubmittedAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -62,6 +68,8 @@ export type ProfileMinAggregateInputType = {
   nickname?: true
   role?: true
   verificationStatus?: true
+  verificationImagePath?: true
+  verificationSubmittedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -72,6 +80,8 @@ export type ProfileMaxAggregateInputType = {
   nickname?: true
   role?: true
   verificationStatus?: true
+  verificationImagePath?: true
+  verificationSubmittedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -82,6 +92,8 @@ export type ProfileCountAggregateInputType = {
   nickname?: true
   role?: true
   verificationStatus?: true
+  verificationImagePath?: true
+  verificationSubmittedAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -165,6 +177,8 @@ export type ProfileGroupByOutputType = {
   nickname: string | null
   role: $Enums.UserRole
   verificationStatus: $Enums.VerificationStatus
+  verificationImagePath: string | null
+  verificationSubmittedAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: ProfileCountAggregateOutputType | null
@@ -196,6 +210,8 @@ export type ProfileWhereInput = {
   nickname?: Prisma.StringNullableFilter<"Profile"> | string | null
   role?: Prisma.EnumUserRoleFilter<"Profile"> | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFilter<"Profile"> | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.StringNullableFilter<"Profile"> | string | null
+  verificationSubmittedAt?: Prisma.DateTimeNullableFilter<"Profile"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
 }
@@ -206,6 +222,8 @@ export type ProfileOrderByWithRelationInput = {
   nickname?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
+  verificationImagePath?: Prisma.SortOrderInput | Prisma.SortOrder
+  verificationSubmittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -219,6 +237,8 @@ export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
   role?: Prisma.EnumUserRoleFilter<"Profile"> | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFilter<"Profile"> | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.StringNullableFilter<"Profile"> | string | null
+  verificationSubmittedAt?: Prisma.DateTimeNullableFilter<"Profile"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Profile"> | Date | string
 }, "id" | "email" | "nickname">
@@ -229,6 +249,8 @@ export type ProfileOrderByWithAggregationInput = {
   nickname?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
+  verificationImagePath?: Prisma.SortOrderInput | Prisma.SortOrder
+  verificationSubmittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProfileCountOrderByAggregateInput
@@ -245,6 +267,8 @@ export type ProfileScalarWhereWithAggregatesInput = {
   nickname?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
   role?: Prisma.EnumUserRoleWithAggregatesFilter<"Profile"> | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusWithAggregatesFilter<"Profile"> | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  verificationSubmittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Profile"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Profile"> | Date | string
 }
@@ -255,6 +279,8 @@ export type ProfileCreateInput = {
   nickname?: string | null
   role?: $Enums.UserRole
   verificationStatus?: $Enums.VerificationStatus
+  verificationImagePath?: string | null
+  verificationSubmittedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -265,6 +291,8 @@ export type ProfileUncheckedCreateInput = {
   nickname?: string | null
   role?: $Enums.UserRole
   verificationStatus?: $Enums.VerificationStatus
+  verificationImagePath?: string | null
+  verificationSubmittedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -275,6 +303,8 @@ export type ProfileUpdateInput = {
   nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationSubmittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -285,6 +315,8 @@ export type ProfileUncheckedUpdateInput = {
   nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationSubmittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -295,6 +327,8 @@ export type ProfileCreateManyInput = {
   nickname?: string | null
   role?: $Enums.UserRole
   verificationStatus?: $Enums.VerificationStatus
+  verificationImagePath?: string | null
+  verificationSubmittedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -305,6 +339,8 @@ export type ProfileUpdateManyMutationInput = {
   nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationSubmittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -315,6 +351,8 @@ export type ProfileUncheckedUpdateManyInput = {
   nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
+  verificationImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationSubmittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -325,6 +363,8 @@ export type ProfileCountOrderByAggregateInput = {
   nickname?: Prisma.SortOrder
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
+  verificationImagePath?: Prisma.SortOrder
+  verificationSubmittedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -335,6 +375,8 @@ export type ProfileMaxOrderByAggregateInput = {
   nickname?: Prisma.SortOrder
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
+  verificationImagePath?: Prisma.SortOrder
+  verificationSubmittedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -345,6 +387,8 @@ export type ProfileMinOrderByAggregateInput = {
   nickname?: Prisma.SortOrder
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
+  verificationImagePath?: Prisma.SortOrder
+  verificationSubmittedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -361,6 +405,10 @@ export type EnumVerificationStatusFieldUpdateOperationsInput = {
   set?: $Enums.VerificationStatus
 }
 
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
 
 
 export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -369,6 +417,8 @@ export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   nickname?: boolean
   role?: boolean
   verificationStatus?: boolean
+  verificationImagePath?: boolean
+  verificationSubmittedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["profile"]>
@@ -379,6 +429,8 @@ export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   nickname?: boolean
   role?: boolean
   verificationStatus?: boolean
+  verificationImagePath?: boolean
+  verificationSubmittedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["profile"]>
@@ -389,6 +441,8 @@ export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   nickname?: boolean
   role?: boolean
   verificationStatus?: boolean
+  verificationImagePath?: boolean
+  verificationSubmittedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["profile"]>
@@ -399,11 +453,13 @@ export type ProfileSelectScalar = {
   nickname?: boolean
   role?: boolean
   verificationStatus?: boolean
+  verificationImagePath?: boolean
+  verificationSubmittedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "nickname" | "role" | "verificationStatus" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "nickname" | "role" | "verificationStatus" | "verificationImagePath" | "verificationSubmittedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
 
 export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Profile"
@@ -414,6 +470,8 @@ export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     nickname: string | null
     role: $Enums.UserRole
     verificationStatus: $Enums.VerificationStatus
+    verificationImagePath: string | null
+    verificationSubmittedAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["profile"]>
@@ -844,6 +902,8 @@ export interface ProfileFieldRefs {
   readonly nickname: Prisma.FieldRef<"Profile", 'String'>
   readonly role: Prisma.FieldRef<"Profile", 'UserRole'>
   readonly verificationStatus: Prisma.FieldRef<"Profile", 'VerificationStatus'>
+  readonly verificationImagePath: Prisma.FieldRef<"Profile", 'String'>
+  readonly verificationSubmittedAt: Prisma.FieldRef<"Profile", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Profile", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Profile", 'DateTime'>
 }
