@@ -4,7 +4,7 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "",
+    "config": "tailwind.config.ts",
     "css": "src/globals.css",
     "baseColor": "slate",
     "cssVariables": true,
@@ -19,7 +19,7 @@
   },
   "iconLibrary": "lucide",
   "resolvedPaths": {
-    "tailwindConfig": "",
+    "tailwindConfig": "tailwind.config.ts",
     "tailwindCss": "/Users/hoya/nodejs/law-fi/packages/ui/src/globals.css",
     "utils": "/Users/hoya/nodejs/law-fi/packages/ui/src/lib/utils",
     "components": "/Users/hoya/nodejs/law-fi/packages/ui/src/components",
