@@ -15,6 +15,11 @@ export function LoginPage() {
     login(
       { email, password },
       {
+        onSuccess: (data) => {
+          if (!data.success && data.error) {
+            setError(data.error.message ?? '로그인에 실패했습니다.')
+          }
+        },
         onError: (err) => {
           setError(err.message ?? '로그인에 실패했습니다.')
         },

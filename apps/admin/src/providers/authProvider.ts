@@ -7,17 +7,33 @@ export const authProvider: AuthProvider = {
 
     if (error) return { success: false, error }
 
-    const { data: profile } = await supabase
+    const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', data.user.id)
-      .single()
+      .maybeSingle()
 
-    if (profile?.role !== 'ADMIN') {
+    if (profileError) {
       await supabase.auth.signOut()
       return {
         success: false,
-        error: { name: 'Access Denied', message: '관리자 권한이 없습니다.' },
+        error: { name: 'Profile Error', message: `프로필 조회 실패: ${profileError.message}` },
+      }
+    }
+
+    if (!profile) {
+      await supabase.auth.signOut()
+      return {
+        success: false,
+        error: { name: 'Not Found', message: '프로필이 존재하지 않습니다. Supabase 대시보드에서 profiles 테이블을 확인하세요.' },
+      }
+    }
+
+    if (profile.role !== 'ADMIN') {
+      await supabase.auth.signOut()
+      return {
+        success: false,
+        error: { name: 'Access Denied', message: `관리자 권한이 없습니다. (현재 role: ${profile.role})` },
       }
     }
 
