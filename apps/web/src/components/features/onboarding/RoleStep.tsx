@@ -6,8 +6,13 @@ import { useOnboardingStore } from '@/store/useOnboardingStore'
 
 import { Gavel, GraduationCap, ChevronLeft } from 'lucide-react'
 
-export function RoleStep() {
-	const { role, setRole, setStep } = useOnboardingStore()
+interface RoleStepProps {
+	onNext: () => void
+	onPrev: () => void
+}
+
+export function RoleStep({ onNext, onPrev }: RoleStepProps) {
+	const { role, setRole } = useOnboardingStore()
 
 	const roles = [
 		{
@@ -62,13 +67,13 @@ export function RoleStep() {
 			<div className="flex gap-4">
 				<Button
 					variant="ghost"
-					onClick={() => setStep('NICKNAME')}
+					onClick={onPrev}
 					className="h-12 text-white/50 hover:text-white"
 				>
 					<ChevronLeft className="mr-1 h-4 w-4" /> Back
 				</Button>
 				<Button
-					onClick={() => setStep('VERIFICATION')}
+					onClick={onNext}
 					disabled={!role}
 					className="h-12 flex-1 rounded-xl bg-white font-bold text-black hover:bg-white/90"
 				>

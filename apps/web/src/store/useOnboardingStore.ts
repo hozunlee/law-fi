@@ -3,7 +3,6 @@ import { create } from 'zustand'
 export type OnboardingStep = 'NICKNAME' | 'ROLE' | 'VERIFICATION' | 'PENDING'
 
 interface OnboardingState {
-  step: OnboardingStep
   nickname: string
   isNicknameValid: boolean
   role: 'LAWYER' | 'STUDENT' | null
@@ -11,7 +10,6 @@ interface OnboardingState {
   extraProofFile: File | null
   isSubmitting: boolean
 
-  setStep: (step: OnboardingStep) => void
   setNickname: (nickname: string) => void
   setIsNicknameValid: (isValid: boolean) => void
   setRole: (role: 'LAWYER' | 'STUDENT' | null) => void
@@ -30,7 +28,6 @@ export const useOnboardingStore = create<OnboardingState>((set) => ({
   extraProofFile: null,
   isSubmitting: false,
 
-  setStep: (step) => set({ step }),
   setNickname: (nickname) => set({ nickname }),
   setIsNicknameValid: (isNicknameValid) => set({ isNicknameValid }),
   setRole: (role) => set({ role }),
@@ -39,7 +36,6 @@ export const useOnboardingStore = create<OnboardingState>((set) => ({
   setIsSubmitting: (isSubmitting) => set({ isSubmitting }),
   reset: () =>
     set({
-      step: 'NICKNAME',
       nickname: '',
       isNicknameValid: false,
       role: null,

@@ -2,25 +2,23 @@
 
 import { createClient } from '@law-fi/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { prisma, UserRole, VerificationStatus } from '@law-fi/db'
 
 /**
  * 닉네임 중복 확인
  */
 export async function checkNicknameDuplicate(nickname: string) {
-	const supabase = await createClient()
+	try {
+		const existingUser = await prisma.profile.findUnique({
+			where: { nickname },
+			select: { nickname: true }
+		})
 
-	const { data, error } = await supabase
-		.from('profiles')
-		.select('nickname')
-		.eq('nickname', nickname)
-		.maybeSingle()
-
-	if (error) {
+		return !!existingUser
+	} catch (error) {
 		console.error('Error checking nickname duplicate:', error)
 		throw new Error('닉네임 확인 중 오류가 발생했습니다.')
 	}
-
-	return !!data
 }
 
 /**
@@ -38,16 +36,15 @@ export async function updateProfileBasic(data: { nickname: string; role: 'LAWYER
 		throw new Error('인증되지 않은 사용자입니다.')
 	}
 
-	const { error } = await supabase
-		.from('profiles')
-		.update({
-			nickname: data.nickname,
-			role: data.role,
-			updatedAt: new Date().toISOString()
+	try {
+		await prisma.profile.update({
+			where: { id: user.id },
+			data: {
+				nickname: data.nickname,
+				role: data.role as UserRole,
+			}
 		})
-		.eq('id', user.id)
-
-	if (error) {
+	} catch (error) {
 		console.error('Error updating profile basic:', error)
 		throw new Error('프로필 업데이트 중 오류가 발생했습니다.')
 	}
@@ -71,15 +68,16 @@ export async function submitVerification(filePath: string) {
 		throw new Error('인증되지 않은 사용자입니다.')
 	}
 
-	const { error } = await supabase
-		.from('profiles')
-		.update({
-			verificationStatus: 'PENDING',
-			updatedAt: new Date().toISOString()
+	try {
+		await prisma.profile.update({
+			where: { id: user.id },
+			data: {
+				verificationImagePath: filePath,
+				verificationStatus: 'PENDING' as VerificationStatus,
+				verificationSubmittedAt: new Date()
+			}
 		})
-		.eq('id', user.id)
-
-	if (error) {
+	} catch (error) {
 		console.error('Error submitting verification:', error)
 		throw new Error('인증 제출 중 오류가 발생했습니다.')
 	}

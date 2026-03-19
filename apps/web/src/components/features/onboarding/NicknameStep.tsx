@@ -8,8 +8,12 @@ import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { checkNicknameDuplicate } from '@/lib/actions/onboarding.action'
 import { toast } from 'sonner'
 
-export function NicknameStep() {
-	const { nickname, setNickname, setStep } = useOnboardingStore()
+interface NicknameStepProps {
+	onNext: () => void
+}
+
+export function NicknameStep({ onNext }: NicknameStepProps) {
+	const { nickname, setNickname } = useOnboardingStore()
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState<string | null>(null)
 
@@ -28,7 +32,7 @@ export function NicknameStep() {
 			if (isDuplicate) {
 				setError('이미 사용 중인 닉네임입니다.')
 			} else {
-				setStep('ROLE')
+				onNext()
 			}
 		} catch (err) {
 			toast.error('오류가 발생했습니다. 다시 시도해 주세요.')

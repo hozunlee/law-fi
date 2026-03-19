@@ -7,6 +7,7 @@ import { Button } from '@law-fi/ui/button'
 import { Input } from '@law-fi/ui/input'
 import { passwordSchema } from '@law-fi/supabase/zod/auth'
 import { createClient } from '@law-fi/supabase/client'
+import { getPostLoginRedirectPath } from '@/lib/actions/auth.action'
 
 interface LoginFormProps {
 	email: string
@@ -44,8 +45,8 @@ export function LoginForm({ email, onReset }: LoginFormProps) {
 		}
 
 		toast.success('로그인 성공')
-		// After success, router.push will trigger middleware which checks profile status
-		router.push('/lounge')
+		const redirectUrl = await getPostLoginRedirectPath()
+		router.push(redirectUrl)
 	}
 
 	return (
